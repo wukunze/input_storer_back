@@ -13,7 +13,9 @@ app = Flask(__name__)
 app.after_request(after_request)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:lab1008.@172.25.46.97/input_store'
 # 设置数据库
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+
 db = SQLAlchemy(app)
 
 class Person(db.Model):
